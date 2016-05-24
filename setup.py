@@ -33,4 +33,7 @@ setup(
     author='Shrey Agarwal, Taranjeet Singh',
     author_email='shrey.agarwal@paytm.com, reachtotj@gmail.com',
     classifiers=CLASSIFIERS,
+    install_requires=[
+    "dj-myghanta >= 0.1",
+    ]
 )

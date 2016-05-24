@@ -15,7 +15,7 @@ where rules can be get in json format.
 
 ## Use
 
-1. Add "youknowwhogui" to your INSTALLED_APPS like this::
+1. Add "youknowwhogui" to your INSTALLED_APPS like this
 
     ```
     INSTALLED_APPS = (
@@ -24,13 +24,13 @@ where rules can be get in json format.
     )
     ```
 
-2. To create models, run migrate like::
+2. To create models, run migrate like
 
     ```
     python manage.py migrate
     ```
 
-3. Include the urls of the app in your root url by ::
+3. Include the urls of the app in your root url by
 
     ```
     url(r'^youknowwhogui/', include('youknowwhogui.urls', namespace='youknowwhogui')),

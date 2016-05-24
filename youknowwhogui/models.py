@@ -1,10 +1,12 @@
 from django.db import models
 
+from myghanta.fields import MysqlTimeStampField
+
 
 class RuleTag(models.Model):
     tag_name    = models.CharField(primary_key=True, max_length=255)
-    created_at  = models.DateTimeField(blank=True, auto_now_add=True, null=True)
-    updated_at  = models.DateTimeField(blank=True, auto_now=True, null=True)
+    created_at  = MysqlTimeStampField(blank=True, auto_now_add=True, null=True)
+    updated_at  = MysqlTimeStampField(blank=True, auto_now=True, null=True)
 
     def __str__(self):
         return str(self.tag_name)
@@ -33,8 +35,8 @@ class Rule(models.Model):
     priority            = models.IntegerField(blank=True, null=True, help_text='Priority 1 is highest. Lower the number higher the priority.')
     conditions_operator = models.CharField(max_length=255, blank=True, choices=RULE_OPERATOR,
                                            help_text='Please select if rule conditions should be ANDed or ORed.. By default AND is selected' , default='&&')
-    created_at          = models.DateTimeField(auto_now_add=True, null=True, blank=True,)
-    updated_at          = models.DateTimeField(auto_now=True, null=True, blank=True,)
+    created_at          = MysqlTimeStampField(auto_now_add=True, null=True, blank=True,)
+    updated_at          = MysqlTimeStampField(auto_now=True, null=True, blank=True,)
 
     def __str__(self):
         return '{}'.format(self.id)
@@ -76,8 +78,8 @@ class RuleAction(models.Model):
                             E.g.  true, false are boolean values . \
                             Almost all message properties can be used as variables \
                             like <%= userdata.amount %> <%= userdata.recharge_number %>''')
-    created_at      = models.DateTimeField(blank=True, auto_now_add=True, null=True)
-    updated_at      = models.DateTimeField(blank=True, auto_now=True, null=True)
+    created_at      = MysqlTimeStampField(blank=True, auto_now_add=True, null=True)
+    updated_at      = MysqlTimeStampField(blank=True, auto_now=True, null=True)
 
     def __str__(self):
         return '{}'.format(self.rule_id)
@@ -145,8 +147,8 @@ class RuleCondition(models.Model):
                             help_text ='''Different values for different operations. \
                             Such as range can have numerical ranges like 1,2,4~5, 6~10,11,12~ . \
                             datetimerange can have range like 2015-06-11 ~ 2015-07-12 .''')
-    created_at      = models.DateTimeField(blank=True, auto_now_add=True, null=True)
-    updated_at      = models.DateTimeField(blank=True, auto_now=True, null=True)
+    created_at      = MysqlTimeStampField(blank=True, auto_now_add=True, null=True)
+    updated_at      = MysqlTimeStampField(blank=True, auto_now=True, null=True)
 
     def __str__(self):
         return str(self.rule_id)
